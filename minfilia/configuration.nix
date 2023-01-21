@@ -9,6 +9,7 @@
 	# --- boot ---
 
 	boot = {
+		kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 		loader = {
 			systemd-boot.enable = true;
 			efi = {
@@ -16,13 +17,17 @@
 				efiSysMountPoint = "/boot/efi";
 			};
 		};
+		supportedFilesystems = [ "zfs" ];
+		zfs.extraPools = [ "data1" ];
 	};
 
 	# --- networking ---
 
 	networking = {
 		hostName = "minfilia";
+		hostId = (builtins.substring 0 8 (builtins.readFile "/etc/machine-id"));
 		networkmanager.enable = true;
+		firewall.allowedTCPPorts = [ 80 443 ];
 	};
 
 	# --- time ---
@@ -50,6 +55,7 @@
 	nixpkgs.config.allowUnfree = true;
 
 	environment.systemPackages = with pkgs; [
+		zfs
 	];
 
 	users.users.lak132.packages = with pkgs; [
@@ -57,11 +63,37 @@
 
 	programs.nm-applet.enable = true;
 
-	# https://nixos.wiki/wiki/Nextcloud
+	services.zfs.autoScrub.enable = true;
+
 	services.nextcloud = {
 		enable = true;
 		package = pkgs.nextcloud25;
 		# hostName = "localhost";
-		# config.adminpassFile = "${pkgs.writeText "adminpass" "test123"}";
+		# https = true;
+		config = {
+			# adminpassFile = "${pkgs.writeText "adminpass" "test123"}";
+			dbtype = "pgsql";
+			dbuser = "nextcloud";
+			dbhost = "/run/postgresql";
+			dbname = "nextcloud";
+		};
+	};
+
+	services.postgresql = {
+		enable = true;
+		package = pkgs.postgresql_13;
+		dataDir = "/mnt/nextcloud/database";
+		ensureDatabases = [ "nextcloud" ];
+		ensureUsers = [
+			{
+				name = "nextcloud";
+				ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+			}
+		];
+	};
+
+	systemd.services."nextcloud-setup" = {
+		requires = [ "postgresql.service" ];
+		after = [ "postgresql.service" ];
 	};
 }
