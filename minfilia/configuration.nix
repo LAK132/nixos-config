@@ -67,8 +67,9 @@
 
 	services.nextcloud = {
 		enable = true;
-		package = pkgs.nextcloud25;
+		package = pkgs.nextcloud26;
 		maxUploadSize = "10G";
+		datadir = "/mnt/nextcloud/data";
 		# hostName = "localhost";
 		# https = true;
 		config = {
@@ -78,12 +79,17 @@
 			dbhost = "/run/postgresql";
 			dbname = "nextcloud";
 		};
+		extraOptions = {
+			"bulkupload.enabled" = true;
+		};
+		caching.redis = true;
+		configureRedis = true;
 	};
 
 	services.postgresql = {
 		enable = true;
 		package = pkgs.postgresql_13;
-		dataDir = "/mnt/nextcloud/database";
+		dataDir = "/mnt/postgres/database";
 		ensureDatabases = [ "nextcloud" ];
 		ensureUsers = [
 			{
