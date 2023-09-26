@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	imports = [
-		../lak132/user.nix
-		../lak132/dev.nix
-	];
-
 	# --- boot ---
 
 	boot = {

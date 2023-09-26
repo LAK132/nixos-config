@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	imports = [
-		../lak132/user.nix
-		../lak132/dev.nix
-	];
-
 	# --- boot ---
 
 	boot = {
@@ -23,7 +18,9 @@
 
 	networking = {
 		hostName = "ryne";
+		# hostId = (builtins.substring 0 8 (builtins.readFile "/etc/machine-id"));
 		networkmanager.enable = true;
+		firewall.allowedTCPPorts = [ 80 443 ];
 	};
 
 	# --- time ---
@@ -81,4 +78,6 @@
 
 	# enable CUPS to print documents
 	services.printing.enable = true;
+
+	services.openssh.enable = true;
 }
