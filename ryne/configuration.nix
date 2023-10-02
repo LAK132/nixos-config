@@ -64,7 +64,10 @@
 		dedicatedServer.openFirewall = true;
 	};
 
+	users.extraGroups.docker.members = [ "lak132" ];
+
 	environment.systemPackages = with pkgs; [
+		docker-compose
 	];
 
 	users.users.lak132.packages = with pkgs; [
@@ -80,4 +83,10 @@
 	services.printing.enable = true;
 
 	services.openssh.enable = true;
+
+	virtualisation.arion = {
+		backend = "docker";
+		projects = {
+		};
+	};
 }
