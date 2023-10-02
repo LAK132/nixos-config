@@ -1,13 +1,13 @@
 # Installation
 
-1. Add the following to `/etc/configuration.nix`:
+1. Add the following to `/etc/nixos/configuration.nix`:
 ```nix
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 ```
 
 2. `nixos-rebuild switch`
 
-3. Remove content of `/etc/configuration.nix` until it looks like:
+3. Remove content of `/etc/nixos/configuration.nix` until it looks like:
 ```nix
 { config, pkgs, ... }:
 
@@ -37,8 +37,8 @@
 	inputs.nixos-config.url = "github:LAK132/nixos-config";
 
 	outputs = { self, nixpkgs, nixos-config }: {
-		nixosConfigurations = let 
-			args = { modules = [ ./configuration.nix ]; }; 
+		nixosConfigurations = let
+			args = { modules = [ ./configuration.nix ]; };
 		in {
 			minfilia = nixos-config.minfilia args;
 			ryne = nixos-config.ryne args;
