@@ -20,6 +20,9 @@
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
+
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
 	# on your system were taken. It‘s perfectly fine and recommended to leave
@@ -59,3 +62,5 @@ Use `inputs.nixos-config.url = "git+file:/home/lak132/repos/nixos-config?branch=
 Use `nix-rebuild switch --flake "/etc/nixos#XYZW"` to change to the configuration for `XYZW`.
 
 Use `nix flake lock --update-input nixos-config` in `/etc/nixos` to update the lock file.
+
+The computer must use UEFI boot in order to use systemd-boot

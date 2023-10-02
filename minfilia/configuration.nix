@@ -5,13 +5,6 @@
 
 	boot = {
 		kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-		loader = {
-			systemd-boot.enable = true;
-			efi = {
-				canTouchEfiVariables = true;
-				efiSysMountPoint = "/boot/efi";
-			};
-		};
 		supportedFilesystems = [ "zfs" ];
 		zfs.extraPools = [ "data1" ];
 	};
