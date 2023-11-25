@@ -103,4 +103,48 @@
 		requires = [ "postgresql.service" ];
 		after = [ "postgresql.service" ];
 	};
+
+	services.samba-wsdd.enable = true; # make shared visible for Win10 clients
+	services.samba = {
+		enable = true;
+		enableNmbd = true;
+		enableWinbindd = true;
+		openFirewall = true;
+		securityType = "user";
+		extraConfig = ''
+			workgroup = WORKGROUP
+			server string = MINFILIA
+			server role = standalone
+			netbios name = MINFILIA
+			security = user
+			#user sendfile = yes
+			min protocol = smb2
+			# max protocol = smb3
+			# note: localhost is the ipv6 localhost ::1
+			hosts allow = 192.168.0.0/16 127.0.0.1 localhost
+			hosts deny = 0.0.0.0/0
+			guest account = nobody
+			map to guest = bad user
+			# map to guest = never
+			# valid users = lak132, nobody
+		'';
+		shares = {
+			Public = {
+				path = "/mnt/nas/Public";
+				browseable = "yes";
+				"read only" = "no";
+				"guest ok" = "yes";
+				"create mask" = "0644";
+				"directory mask" = "0755";
+			};
+			LAK132 = {
+				path = "/mnt/nas/LAK132";
+				browseable = "yes";
+				"read only" = "no";
+				"guest ok" = "no";
+				"create mask" = "0644";
+				"directory mask" = "0755";
+			};
+		};
+	};
 }
