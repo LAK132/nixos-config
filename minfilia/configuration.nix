@@ -15,7 +15,19 @@
 		hostName = "minfilia";
 		hostId = (builtins.substring 0 8 (builtins.readFile "/etc/machine-id"));
 		networkmanager.enable = true;
-		firewall.allowedTCPPorts = [ 80 443 ];
+		firewall.enable = true;
+		firewall.allowPing = true;
+		firewall.allowedTCPPorts = [ 
+			23
+			80
+			443
+			5357 # wsdd
+			445 139
+		];
+		firewall.allowedUDPPorts = [
+			3702 # wsdd
+			137 138
+		];
 	};
 
 	# --- time ---
