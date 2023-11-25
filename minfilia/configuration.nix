@@ -54,8 +54,8 @@
 	services.zfs.autoScrub.enable = true;
 
 	services.nextcloud = {
-		enable = true;
-		package = pkgs.nextcloud26;
+		enable = false;
+		package = pkgs.nextcloud27;
 		maxUploadSize = "10G";
 		datadir = "/mnt/nextcloud/data";
 		# hostName = "localhost";
