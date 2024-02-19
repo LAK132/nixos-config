@@ -23,6 +23,7 @@
 			443
 			5357 # wsdd
 			445 139
+			8334 # filebrowser
 		];
 		firewall.allowedUDPPorts = [
 			3702 # wsdd
@@ -56,14 +57,49 @@
 
 	environment.systemPackages = with pkgs; [
 		zfs
+		docker-compose
 	];
 
 	users.users.lak132.packages = with pkgs; [
+		firefox
 	];
+
+	users.extraGroups.docker.members = [ "lak132" ];
 
 	programs.nm-applet.enable = true;
 
 	services.zfs.autoScrub.enable = true;
+
+	virtualisation.arion = {
+		backend = "docker";
+		projects.nginx-hosting.settings = {
+			services = {
+				nginx-proxy-manager.service = {
+					image = "jc21/nginx-proxy-manager:latest";
+					volumes = [
+						"/home/lak132/nginx/data:/data"
+						"/home/lak132/nginx/letsencrypt:/etc/letsencrypt"
+					];
+					ports = [
+						"80:80"
+						"443:443"
+						"81:81"
+					];
+				};
+				filebrowser.service = {
+					image = "filebrowser/filebrowser:latest";
+					volumes = [
+						"/mnt/nas:/srv"
+						"/home/lak132/filebrowser/database:/database"
+						"/home/lak132/filebrowser/config:/config"
+					];
+					ports = [
+						"8334:80"
+					];
+				};
+			};
+		};
+	};
 
 	services.nextcloud = {
 		enable = false;
