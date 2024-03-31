@@ -163,6 +163,8 @@
 			map to guest = bad user
 			# map to guest = never
 			# valid users = lak132, nobody
+			veto files = /._*/.DS_Store/
+			delete veto files = yes
 		'';
 		shares = {
 			Public = {
