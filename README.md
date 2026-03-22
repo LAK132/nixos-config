@@ -65,6 +65,6 @@ Use `inputs.nixos-config.url = "git+file:/home/lak132/repos/nixos-config?branch=
 
 Use `nixos-rebuild switch --flake "/etc/nixos#XYZW"` to change to the configuration for `XYZW`.
 
-Use `nix flake lock --update-input nixos-config` in `/etc/nixos` to update the lock file.
+Use `nix flake update nixos-config` in `/etc/nixos` to update the lock file.
 
 The computer must use UEFI boot in order to use systemd-boot

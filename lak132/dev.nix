@@ -5,7 +5,7 @@
 		git
 		python3
 		usbutils
-		neofetch
+		fastfetch
 		wine
 	];
 
