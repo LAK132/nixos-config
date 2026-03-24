@@ -13,5 +13,6 @@
 		winetricks
 		gparted
 		vscode
+		clang-tools # clang-format
 	];
 }
