@@ -19,6 +19,6 @@
 	users.users.lak132 = {
 		isNormalUser = true;
 		description = "LAK132";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "dialout" ];
 	};
 }
