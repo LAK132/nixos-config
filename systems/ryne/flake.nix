@@ -1,5 +1,6 @@
 {
 	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 		components.url = ./../../components;
 		filestash-nix.url = "github:matthewcroughan/filestash-nix";
 	};
