@@ -35,21 +35,7 @@
 
 	time.timeZone = "Australia/Adelaide";
 
-	# --- graphics ---
-
-	services.xserver = {
-		enable = true;
-		displayManager.lightdm.enable = true;
-		desktopManager.mate.enable = true;
-		layout = "au";
-		xkbVariant = "";
-	};
-
-	hardware.opengl.enable = true;
-
-	# --- sound ---
-
-	sound.enable = false;
+	# --- hardware ---
 
 	# --- software ---
 
@@ -58,10 +44,6 @@
 	environment.systemPackages = with pkgs; [
 		zfs
 		docker-compose
-	];
-
-	users.users.lak132.packages = with pkgs; [
-		firefox
 	];
 
 	users.extraGroups.docker.members = [ "lak132" ];

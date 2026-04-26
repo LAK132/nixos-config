@@ -9,7 +9,9 @@
 			modules = args.modules ++ [
 				./configuration.nix
 				components.lak132
+				components.display.mate
 				components.software.dev
+				components.software.internet
 				arion.nixosModules.arion
 			];
 		});

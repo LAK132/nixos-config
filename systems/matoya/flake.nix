@@ -9,7 +9,14 @@
 			modules = args.modules ++ [
 				./configuration.nix
 				components.lak132
+				components.display.plasma
+				components.hardware.bluetooth
+				components.hardware.sound
 				components.software.dev
+				components.software.gaming
+				components.software.internet
+				components.software.media
+				components.software.social
 			];
 		});
 	};
