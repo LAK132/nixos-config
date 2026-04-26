@@ -1,46 +1,41 @@
 {
 	inputs = {
 		components.url = ./components;
-		codingway.url = ./systems/codingway;
-		matoya.url = ./systems/matoya;
-		minfilia.url = ./systems/minfilia;
-		mylla.url = ./systems/mylla;
-		ryne.url = ./systems/ryne;
-		yshtola.url = ./systems/yshtola;
+		systems.url = ./systems;
 	};
 
-	outputs = { self, nixpkgs, components, codingway, matoya, minfilia, mylla, ryne, yshtola }: {
-		codingway = args: codingway.config (args // {
+	outputs = { self, nixpkgs, components, systems }: {
+		codingway = args: systems.codingway.config (args // {
 			modules = args.modules ++ [
 				components.lak132
 				components.software.dev
 			];
 		});
-		matoya = args: matoya.config (args // {
+		matoya = args: systems.matoya.config (args // {
 			modules = args.modules ++ [
 				components.lak132
 				components.software.dev
 			];
 		});
-		minfilia = args: minfilia.config (args // {
+		minfilia = args: systems.minfilia.config (args // {
 			modules = args.modules ++ [
 				components.lak132
 				components.software.dev
 			];
 		});
-		mylla = args: mylla.config (args // {
+		mylla = args: systems.mylla.config (args // {
 			modules = args.modules ++ [
 				components.lak132
 				components.software.dev
 			];
 		});
-		ryne = args: ryne.config (args // {
+		ryne = args: systems.ryne.config (args // {
 			modules = args.modules ++ [
 				components.lak132
 				components.software.dev
 			];
 		});
-		yshtola = args: yshtola.config (args // {
+		yshtola = args: systems.yshtola.config (args // {
 			modules = args.modules ++ [
 				components.lak132
 				components.software.dev
