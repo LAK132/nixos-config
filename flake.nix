@@ -4,29 +4,13 @@
 	};
 
 	outputs = { self, nixpkgs, systems }: {
-		codingway = args: systems.codingway.config (args // {
-			modules = args.modules ++ [
-			];
-		});
-		matoya = args: systems.matoya.config (args // {
-			modules = args.modules ++ [
-			];
-		});
-		minfilia = args: systems.minfilia.config (args // {
-			modules = args.modules ++ [
-			];
-		});
-		mylla = args: systems.mylla.config (args // {
-			modules = args.modules ++ [
-			];
-		});
-		ryne = args: systems.ryne.config (args // {
-			modules = args.modules ++ [
-			];
-		});
-		yshtola = args: systems.yshtola.config (args // {
-			modules = args.modules ++ [
-			];
-		});
+		nixosConfigurations = args: {
+			codingway = systems.codingway.config args;
+			matoya = systems.matoya.config args;
+			minfilia = systems.minfilia.config args;
+			mylla = systems.mylla.config args;
+			ryne = systems.ryne.config args;
+			yshtola = systems.yshtola.config args;
+		};
 	};
 }

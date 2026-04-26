@@ -17,13 +17,9 @@
 	inputs.nixos-config.url = "github:LAK132/nixos-config";
 
 	outputs = { self, nixpkgs, nixos-config }: {
-		nixosConfigurations = let
-			args = { modules = [ ./configuration.nix ]; };
-		in {
-			minfilia = nixos-config.minfilia args;
-			ryne = nixos-config.ryne args;
-			yshtola = nixos-config.yshtola args;
-		};
+		nixosConfigurations = nixos-config.nixosConfigurations ({
+			modules = [ ./configuration.nix ];
+		});
 	};
 }
 ```
