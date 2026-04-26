@@ -14,38 +14,62 @@
 		networkmanager.enable = true;
 	};
 
+	# --- bluetooth ---
+
+	hardware.bluetooth = {
+		enable = true;
+		powerOnBoot = true;
+		settings = {
+			General = {
+				Experimental = true;
+				FastConnectable = true;
+			};
+			Policy = {
+				AutoEnable = true;
+			};
+		};
+	};
+
+	services.blueman.enable = true;
+
 	# --- time ---
 
 	time.timeZone = "Australia/Adelaide";
 
 	# --- graphics ---
 
-	services.xserver = {
-		enable = true;
+	services = {
+		xserver = {
+			enable = true;
+			videoDrivers = [ "nvidia" ];
+			xkb = {
+				layout = "au";
+				variant = "";
+			};
+			wacom.enable = true;
+		};
 		displayManager.sddm.enable = true;
-		desktopManager.plasma5.enable = true;
-		wacom.enable = true;
-		videoDrivers = [ "nvidia" ];
-		layout = "au";
-		xkbVariant = "";
+		desktopManager.plasma6.enable = true;
 	};
 
-	hardware.opengl.enable = true;
+	hardware = {
+		graphics.enable = true;
+		nvidia.open = true; # RTX2060
+	};
 
 	# --- sound ---
 
-	sound.enable = true;
-
-	hardware.pulseaudio.enable = false;
+	services = {
+		pulseaudio.enable = false;
+		pipewire = {
+			enable = true;
+			alsa.enable = true;
+			alsa.support32Bit = true;
+			pulse.enable = true;
+		};
+	};
 
 	security.rtkit.enable = true;
-
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-	};
 
 	# --- software ---
 
