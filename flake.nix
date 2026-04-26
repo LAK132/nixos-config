@@ -1,12 +1,12 @@
 {
 	inputs = {
 		lak132.url = "./lak132";
-		codingway.url = "./codingway";
-		matoya.url = "./matoya";
-		minfilia.url = "./minfilia";
-		mylla.url = "./mylla";
-		ryne.url = "./ryne";
-		yshtola.url = "./yshtola";
+		codingway.url = "./systems/codingway";
+		matoya.url = "./systems/matoya";
+		minfilia.url = "./systems/minfilia";
+		mylla.url = "./systems/mylla";
+		ryne.url = "./systems/ryne";
+		yshtola.url = "./systems/yshtola";
 	};
 
 	outputs = { self, nixpkgs, lak132, codingway, matoya, minfilia, mylla, ryne, yshtola }: {

@@ -17,7 +17,7 @@
 		networkmanager.enable = true;
 		firewall.enable = true;
 		firewall.allowPing = true;
-		firewall.allowedTCPPorts = [ 
+		firewall.allowedTCPPorts = [
 			23
 			80
 			443
