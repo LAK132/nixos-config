@@ -1,9 +1,15 @@
 {
-	outputs = { self, nixpkgs, arion }: {
+	inputs = {
+		components.url = ./../../components;
+	};
+
+	outputs = { self, nixpkgs, components, arion }: {
 		config = args: nixpkgs.lib.nixosSystem (args // {
 			system = "x86_64-linux";
-			modules = args.modules ++ [ 
+			modules = args.modules ++ [
 				./configuration.nix
+				components.lak132
+				components.software.dev
 				arion.nixosModules.arion
 			];
 		});
