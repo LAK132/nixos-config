@@ -3,6 +3,9 @@
 {
 	environment.systemPackages = with pkgs; [
 		git
+		gcc
+		meson
+		cmake
 		python3
 		usbutils
 		fastfetch
