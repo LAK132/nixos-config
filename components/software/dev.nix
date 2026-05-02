@@ -17,5 +17,6 @@
 		gparted
 		vscode
 		clang-tools # clang-format
+		ddd
 	];
 }
