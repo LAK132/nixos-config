@@ -7,6 +7,18 @@
 		supportedFilesystems = [ "ntfs" ];
 	};
 
+	fileSystems."/mnt/minfilia" = {
+		device = "lak132@minfilia.lan:/mnt/nas";
+		fsType = "sshfs";
+		options = [
+			"allow_other"
+			"noatime"
+			"_netdev"
+			"reconnect"
+			"IdentityFile=/var/secrets/minfilia_id_rsa"
+		];
+	};
+
 	# --- networking ---
 
 	networking = {
