@@ -37,6 +37,11 @@
 		wacom.enable = true;
 	};
 
+	services.udev.extraRules = ''
+		# sony devices
+		SUBSYSTEM=="usb", ATTR{idVendor}=="054c", MODE="0666"
+	'';
+
 	hardware.nvidia.open = true; # RTX2060
 
 	# --- software ---
