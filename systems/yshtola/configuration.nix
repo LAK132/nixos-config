@@ -42,6 +42,8 @@
 		SUBSYSTEM=="usb", ATTR{idVendor}=="054c", MODE="0666"
 	'';
 
+	services.gnome.glib-networking.enable = true;
+
 	hardware.nvidia.open = true; # RTX2060
 
 	# --- software ---
