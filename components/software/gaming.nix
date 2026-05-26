@@ -10,5 +10,6 @@
 	users.users.lak132.packages = with pkgs; [
 		steam-run
 		xivlauncher
+		lutris
 	];
 }
