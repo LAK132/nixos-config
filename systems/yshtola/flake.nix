@@ -21,6 +21,7 @@
 				components.display.plasma
 				components.hardware.bluetooth
 				components.hardware.sound
+				components.hardware.steam-controller
 				components.software.dev
 				components.software.gaming
 				components.software.internet
