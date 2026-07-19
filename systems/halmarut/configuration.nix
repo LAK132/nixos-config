@@ -15,6 +15,8 @@
 		networkmanager.enable = true;
 	};
 
+	programs.nm-applet.enable = true;
+
 	# --- time ---
 
 	time.timeZone = "Australia/Adelaide";

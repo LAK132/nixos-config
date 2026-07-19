@@ -12,6 +12,7 @@
 				components.lak132
 				components.display.mate
 				components.hardware.bluetooth
+				components.hardware.sound
 				components.software.dev
 				components.software.internet
 			];
