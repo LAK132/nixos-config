@@ -75,7 +75,7 @@ stdenv.mkDerivation (finalAttrs: {
 		owner = "LAK132";
 		repo = "rye";
 		# tag = finalAttrs.version;
-		rev = "9d79eee6a7d5d55176141b7d88601a4c28080198";
+		rev = "20bd1a00a34c7cd6f5bd0d3862b05627f8229374";
 		leaveDotGit = true;
 		fetchTags = true;
 
@@ -92,7 +92,7 @@ stdenv.mkDerivation (finalAttrs: {
 			done
 		'';
 
-		hash = "sha256-aaRy/uxCrE9vEHhpYBfaVFf7caKLvuVskp9auAxo7FE=";
+		hash = "sha256-FCLoaGtMFdFrkn576N96NQtmJlo/GedseBQpA+xa72s=";
 	};
 
 	mesonBuildType = "release";
