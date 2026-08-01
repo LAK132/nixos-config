@@ -26,6 +26,7 @@
 				components.software.gaming
 				components.software.internet
 				components.software.media
+				components.software.multimedia
 				components.software.social
 			];
 		});

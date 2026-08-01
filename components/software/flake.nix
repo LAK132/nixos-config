@@ -4,6 +4,7 @@
 		gaming = ./gaming.nix;
 		internet = ./internet.nix;
 		media = ./media.nix;
+		multimedia = ./multimedia.nix;
 		social = ./social.nix;
 	};
 }
