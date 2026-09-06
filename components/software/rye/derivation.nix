@@ -104,7 +104,7 @@ stdenv.mkDerivation (finalAttrs: {
 			rm -rf .git
 		'';
 
-		hash = "sha256-FCLoaGtMFdFrkn576N96NQtmJlo/GedseBQpA+xa72s=";
+		hash = "sha256-wmPBN4QYOAqI8rQFsPbu1BW9w9WMco55DWJ7VR0ZL+o=";
 	};
 
 	mesonBuildType = "release";
