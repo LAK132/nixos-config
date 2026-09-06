@@ -93,6 +93,15 @@ stdenv.mkDerivation (finalAttrs: {
 			for d in subprojects/Cobalt/External/Cache/*/.git; do
 				rm -rf "$d"
 			done
+			git_hash="`git rev-parse --short HEAD`" || exit 1
+			git_tag="`git describe --tags --always --abbrev=0`" || exit 1
+			echo "echo \"#ifndef GIT_HASH\" > \$1" > generate_git_file.sh
+			echo "echo \"#define GIT_HASH \\\"$git_hash\\\"\" >> \$1" >> generate_git_file.sh
+			echo "echo \"#endif\" >> \$1" >> generate_git_file.sh
+			echo "echo \"#ifndef GIT_TAG\" >> \$1" >> generate_git_file.sh
+			echo "echo \"#define GIT_TAG \\\"$git_tag\\\"\" >> \$1" >> generate_git_file.sh
+			echo "echo \"#endif\" >> \$1" >> generate_git_file.sh
+			rm -rf .git
 		'';
 
 		hash = "sha256-FCLoaGtMFdFrkn576N96NQtmJlo/GedseBQpA+xa72s=";
