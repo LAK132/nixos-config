@@ -84,6 +84,9 @@ stdenv.mkDerivation (finalAttrs: {
 			cd "$out"
 			meson setup build ${lib.strings.join " " mesonFlags}
 			rm -rf build
+			for f in subprojects/*/.meson-subproject-wrap-hash.txt; do
+				rm "$f"
+			done
 			for d in subprojects/*/.git; do
 				rm -rf "$d"
 			done
