@@ -27,6 +27,7 @@
 				components.software.internet
 				components.software.media
 				components.software.multimedia
+				components.software.office
 				components.software.social
 			];
 		});
