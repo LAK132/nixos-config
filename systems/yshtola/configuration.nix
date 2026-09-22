@@ -44,6 +44,8 @@
 
 	services.gnome.glib-networking.enable = true;
 
+	services.hardware.bolt.enable = true;
+
 	hardware.nvidia.open = true; # RTX2060
 
 	# --- software ---
