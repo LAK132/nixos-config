@@ -14,7 +14,9 @@
 			"allow_other"
 			"noatime"
 			"_netdev"
+			"x-systemd.automount"
 			"reconnect"
+			"ServerAliveInterval=15"
 			"IdentityFile=/var/secrets/minfilia_id_rsa"
 		];
 	};
