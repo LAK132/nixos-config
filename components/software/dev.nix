@@ -19,5 +19,6 @@
 		vscode
 		clang-tools # clang-format
 		ddd
+		(callPackage ./binex/derivation.nix {})
 	];
 }
