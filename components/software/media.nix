@@ -4,5 +4,6 @@
 	users.users.lak132.packages = with pkgs; [
 		spotify
 		vlc
+		ffmpeg
 	];
 }
