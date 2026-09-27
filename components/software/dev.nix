@@ -20,5 +20,6 @@
 		clang-tools # clang-format
 		ddd
 		(callPackage ./binex/derivation.nix {})
+		(callPackage ./lak/derivation.nix {})
 	];
 }
