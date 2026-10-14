@@ -108,7 +108,8 @@ stdenv.mkDerivation (finalAttrs: {
 		hash = "sha256-I9r7qYGcwkhPfKiHQ1ZBo83FyajNSeSwkRcxC541vt4=";
 	};
 
-	mesonBuildType = "release";
+	# runs out of ram in release builds
+	mesonBuildType = "debug";
 
 	nativeBuildInputs = nativeBuildInputs ++ [
 		makeWrapper
