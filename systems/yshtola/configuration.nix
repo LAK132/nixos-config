@@ -5,6 +5,7 @@
 
 	boot = {
 		supportedFilesystems = [ "ntfs" ];
+		binfmt.emulatedSystems = [ "aarch64-linux" ];
 	};
 
 	fileSystems."/mnt/minfilia" = {
