@@ -7,6 +7,7 @@
 		nixosConfigurations = args: {
 			codingway = systems.codingway.config args;
 			halmarut = systems.halmarut.config args;
+			kicodora = systems.kicodora.config args;
 			matoya = systems.matoya.config args;
 			minfilia = systems.minfilia.config args;
 			mylla = systems.mylla.config args;

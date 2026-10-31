@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
 	i18n = {
@@ -19,6 +19,12 @@
 	users.users.lak132 = {
 		isNormalUser = true;
 		description = "LAK132";
-		extraGroups = [ "networkmanager" "wheel" "dialout" ];
+		extraGroups = [
+			"dialout"
+			"feedbackd"
+			"networkmanager"
+			"video"
+			"wheel"
+		];
 	};
 }
