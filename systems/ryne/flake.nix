@@ -11,8 +11,6 @@
 			modules = args.modules ++ [
 				./configuration.nix
 				components.lak132
-				components.software.dev
-				components.lak132
 				components.display.mate
 				components.hardware.sound
 				components.software.dev
