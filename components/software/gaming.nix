@@ -11,5 +11,6 @@
 		steam-run
 		xivlauncher
 		lutris
+		ftb-app
 	];
 }
