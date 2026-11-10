@@ -8,15 +8,15 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
 	pname = "OpenSteamController";
-	version = "v1.1.0";
+	version = "v1.2.0";
 
-	cargoHash = "sha256-S3Sh60VMCWX2mGE59TELRoWg4TUD9rfzyc81jH6YMig=";
+	cargoHash = "sha256-MfSuSSjrnf9yXYvaFW9GfBhy4xNrXlkyNkn4LzTc0A4=";
 
 	src = fetchFromGitHub {
 		owner = "LennardKittner";
 		repo = "OpenSteamController";
 		tag = finalAttrs.version;
-		hash = "sha256-UtXPir8PLuE8EqDVMdGJXsRwLcuzbIz37DMerR2iFAg=";
+		hash = "sha256-v3Tvj5lQXDvLhFjx+RgyEGPZbya+pi8cD91yYM+q3yo=";
 	};
 
 	nativeBuildInputs = [

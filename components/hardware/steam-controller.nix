@@ -3,6 +3,7 @@
 {
 	users.users.lak132.packages = with pkgs; [
 		(callPackage ./OpenSteamController/derivation.nix {})
+		(callPackage ./OpenSteamController-xinput/derivation.nix {})
 	];
 
 	services.udev.extraRules = ''
